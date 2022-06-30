@@ -11,34 +11,23 @@ squares.forEach((square) => {
 })
 
 function handleClick(event) {
-        console.log(event.target)
+      
     let square = event.target;
     let postion = square.id;
 
-    if (handleMove(postion)) {
+    if (handleMove(position)){
         setTimeout(() => {
-            alert('o jogo Acabou - O vencedor foi ' + playerTime)
-        }, 10); 
-
-    }
+            alert('o jogo acabou')
+        });
+       
+    };
     updateSquare(postion);
-
 }
-function updateSquare(postion) {
-    let square = document.getElementById(postion.toString());
-    let symbols = board(postion);
-    square.innerHTML = `<div class= '${symbols}'><div>`
+function updateSquare(postion){
+    let square = document.getElementById(postion.toString())
+    let symbol = board[postion];
+    square.innerHTML = `<div class= '${symbol}'><div>`
+    
 }
 
-function updateSquares(){
-    let squares = document.querySelectorAll(".square")
 
-    squares.forEach((square) => { 
-        let postion = square.id;
-        let symbols = board [postion];
-
-        if (symbols != "") {
-        square.innerHTML = `<div class= '${symbols}'><div>`
-        }
-    })
-}
